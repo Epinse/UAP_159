@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Document</title>
+
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Gunakan versi terbaru dari GSAP dari CDN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.9.0/dist/gsap.min.js" defer></script>
+
+	<!-- Menggunakan CDN jsDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.9.0/dist/ScrollTrigger.min.js" defer></script>
+
+<!-- Menggunakan CDN unpkg -->
+<script src="https://unpkg.com/gsap@3.9.0/dist/ScrollTrigger.min.js" defer></script>
+
+	<script src="https://raw.githubusercontent.com/username/repo/master/libs/gsap/ScrollSmoother.min.js" defer></script>
+
+
+	<script src="js/app.js" defer></script>
+	<style type="text/css">
+		* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	--index: calc(1vw + 1vh);
+	--text: #e7e7e0;
+	--transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+}
+@font-face {
+	font-family: raleway_f;
+	src: url(https://drive.google.com/uc?id=1H71kmMi62ImEne9ClalQGoaqkQLEZ1Jk);
+}
+@font-face {
+	font-family: raleway_f;
+	src: url(https://drive.google.com/uc?id=1Gaub1iWJk_x3veTaoFlUc8uTOJrOQgL4);
+	font-weight: 900;
+}
+body {
+	background-color: #010101;
+	font-family: raleway_f, sans-serif;
+	line-height: 1.55;
+}
+.main-header {
+	position: relative;
+}
+.main-header::after {
+	content: '';
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: calc(var(--index) * 10);
+	background-image: url(https://drive.google.com/uc?id=14-zmzwiPQIpzDx99tKU58DL2xx6aXix4
+);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	bottom: calc(var(--index) * -4.5);
+}
+.layers {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+.layer {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-size: cover;
+	background-position: center;
+	will-change: transform;
+	z-index: 2;
+	transition: var(--transition);
+}
+.layers__base {
+	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+	z-index: 0;
+}
+.layers__middle {
+	transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+.layers__front {
+	transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+.layer__header {
+	z-index: 1;
+	transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+	transition: var(--transition);
+	will-change: transform;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: var(--text);
+	text-shadow: 0 0 15px #9d822b;
+}
+.layers__title {
+	font-size: calc(var(--index) * 2.65);
+	letter-spacing: calc(var(--index) / 2.25);
+}
+.layers__caption {
+	font-size: calc(var(--index) / 1.175);
+	letter-spacing: calc(var(--index) / 3.5);
+	margin-top: calc(var(--index) * -.75);
+}
+.main-article {
+	--main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center;
+	color: var(--text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	text-align: center;
+	/* Update: */
+	top: -1px;
+	z-index: 10;
+}
+.main-article__header {
+	text-transform: uppercase;
+	font-size: calc(var(--index) * 1.8);
+	letter-spacing: calc(var(--index) / 7.5);
+	transform: var(--main-article-transform);
+	transition: var(--transition);
+	will-change: transform;
+}
+.main-article__paragraph {
+	max-width: calc(var(--index) * 30);
+	font-size: calc(var(--index) * .9);
+	margin-top: calc(var(--index) / 1.25);
+	transform: var(--main-article-transform);
+	transition: var(--transition);
+	will-change: transform;
+}
+.content {
+	will-change: transform;
+}
+.copy {
+	position: absolute;
+	bottom: calc(var(--index) * 2.5);
+	opacity: .45;
+	font-size: calc(var(--index) * .75);
+	letter-spacing: calc(var(--index) / 37.5);
+}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="wrapper">
+		<div class="content">
+
+			<header class="main-header">
+				<div class="layers">
+					<div class="layer__header">
+						<div class="layers__caption">Hasil Dari</div>
+						<div class="layers__title">Prediksi</div>
+					</div>
+					<!-- <div class="layer layers__base" style="background-image: url(img/layer-base.png);"></div> -->
+					<div class="layer layers__base" style="background-image: url('https://drive.google.com/uc?id=1tBFE1o01FPd2sHFjM4tVLa1Uu1-C4Bnc');"></div>
+
+					<!-- <div class="layer layers__middle" style="background-image: url(img/layer-middle.png);"></div>
+
+					<div class="layer layers__front" style="background-image: url(img/layer-front.png);"></div> -->
+					<div class="layer layers__middle" style="background-image: url('https://drive.google.com/uc?id=1DUjsCeSCFbajgMhvQFucXzbiT4j4sXsX');"></div>
+
+					<div class="layer layers__front" style="background-image: url('https://drive.google.com/uc?id=1GynfnD6c2hSOnqeekmoVhOlc5JvU9yU3');"></div>
+
+
+				</div>
+			</header>
+		
+			<!-- <article class="main-article" style="background-image: url(img/dungeon.jpg);"> -->
+				<article class="main-article" style="background-image: url('https://drive.google.com/uc?id=1jd5vVLwaExfgiPyXobgAFCxkLjQlj-MC');">
+
+				<div class="main-article__content">
+					<h2 class="main-article__header">{{ model }}</h2>
+					<p class="main-article__paragraph"><p>
+                                 Label yang Diprediksi adalah : {{ labels[pred] }}</p>
+                             Accuracy : {{ (probs|max) }}% | Prediction Time : {{ (run_time) }} second<p>
+                             	 <input type="hidden" id="probability" value={{(probs|max)}}>
+                             <div id="myProgress">
+                                 <div id="myBar"></div>
+                             </div>
+                             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-column">
+                     <div class="sidebar-content">
+                         <img src="{{ url_for('static', filename=img) }}" alt="" class="img-fluid rounded-pill"
+                             style="height:300px; width:300px;">
+                         <p>Input Image
+                         </p>
+                     </div>
+                 </div>
+				</div>
+				<div class="copy"></div>
+			</article>
+
+		</div>
+	</div>
+<script type="text/javascript">
+
+	window.addEventListener('scroll', e => {
+	document.documentElement.style.setProperty('--scrollTop', `${this.scrollY}px`) // Update method
+})
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+ScrollSmoother.create({
+	wrapper: '.wrapper',
+	content: '.content'
+})
+
+	
+</script>
+</body>
+</html>
